@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>众兴福黑猪鲜肉小笼包溯源系统</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      color: green; 
+    }
+
+    .time-box {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+
+    .stats {
+      text-align: center;
+      margin: 15px 0;
+      color: #666;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .security-info {
+      text-align: center;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+    .security-info p {
+      color: red;
+    }
+
+    .image-modules {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .slide-module {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 15px;
+    }
+
+    .slide-module h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.2em;
+    }
+
+    .slide-container {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 0;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .slide-image {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      object-fit: contain;
+      scroll-snap-align: start;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .image-slider {
+      width: 100%;
+      margin: 20px 0;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    .slider-container {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 0;
+      gap: 0;
+    }
+
+    .slider-image {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      object-fit: contain;
+      scroll-snap-align: start;
+      border-radius: 8px;
+      margin: 0 auto;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    /* 新增视频网格容器，用于并排展示两个视频 */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 0 0 20px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .text-section,
+    .video-section {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    .text-section h2,
+    .video-section h2 {
+      margin-top: 0;
+      font-size: 1.2em;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .content,
+      .image-modules,
+      .video-grid { /* 移动端视频网格改为单列 */
+        grid-template-columns: 1fr;
+      }
+      .slide-image, .slider-image {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>恭喜！您查询的是本公司出产的黑猪鲜肉小笼包</h1>
+  </div>
+
+  <div class="time-box">
+    <span>当前时间：</span>
+    <span id="current-time"></span>
+  </div>
+
+  <div class="stats">
+    <span>您访问页面次数：</span>
+    <span id="visit-count"></span>
+  </div>
+
+    <div class="security-info">
+    <p>您查询的防伪码是：6974104050633</p>
+  </div>
+  <div class="security-info">
+    <p>防伪码所属产品：黑猪鲜肉小笼包</p>
+  </div>
+
+  <div class="content">
+    <div class="text-section">
+      <h2>产品信息</h2>
+      <p>公司名称：</p>  
+      <p>（养殖场）福州众兴牧业有限公司</p>
+      <p> （食品厂）福建众兴福食品有限公司 </p>
+      <p>公司地址：</p>
+      <p>（养殖场地址）福州市闽清县池园镇东前村143号</p>
+      <p> （食品厂地址） 福建省福州市闽侯县祥谦镇祥通路68号闽峰产业园1号厂房</p>
+      <p>联系电话：</p>
+       <p> 0591-87628311 13799325977</p>
+      <h2>产品优势</h2>
+      <p>1. 选用优质黑猪肉为原料，肉质鲜嫩多汁</p>
+      <p>2. 标准化生产流程，全程无菌车间操作</p>
+      <p>3. 传统工艺结合现代技术，保留食材本味</p>
+      <p>4. 制作全程手工现包，且不加防腐剂、色素、香精</p>
+      <p>5. 从农场到餐桌的黑猪</p>
+    </div>
+
+    <!-- 新增视频模块 -->
+    <div class="video-section">
+      <h2>CCTV农业农村频道2020年和2023年展播品牌</h2>
+      <video controls>
+        <source src="321.mp4" type="video/mp4">
+        你的浏览器不支持视频播放
+      </video>
+    </div>
+  </div>
+
+  <!-- 新增视频网格容器，左右并排展示两个视频 -->
+  <div class="video-grid">
+    <div class="video-section">
+      <h2>众兴福食品工厂视频展示</h2>
+      <video controls>
+        <source src="baozi5.mp4" type="video/mp4">
+        你的浏览器不支持视频播放
+      </video>
+    </div>
+
+    <div class="video-section">
+      <h2>众兴福黑猪养殖视频展示</h2>
+      <video controls>
+        <source src="heizhu.mp4" type="video/mp4">
+        你的浏览器不支持视频播放
+      </video>
+    </div>
+  </div>
+
+  <!-- 新增的第四个视频模块 -->
+  <div class="video-section" style="margin: 0 0 20px 0;">
+    <h2>恒温分割厂视频展示</h2>
+    <video controls>
+      <source src="1234.mp4" type="video/mp4">
+      你的浏览器不支持视频播放
+    </video>
+  </div>
+
+  <!-- 滑动图片模块 -->
+  <div class="image-modules">
+    <div class="slide-module">
+      <h3>众兴福黑猪肉介绍</h3>
+      <div class="slide-container" id="slide1"></div>
+    </div>
+    
+    <div class="slide-module">
+      <h3>黑猪肉检疫与检测</h3>
+      <div class="slide-container" id="slide3"></div>
+    </div>
+    
+    <div class="slide-module">
+      <h3>黑猪肉原料新鲜度</h3>
+      <div class="slide-container" id="slide4"></div>
+    </div>
+
+    <div class="slide-module">
+      <h3>黑猪肉包产品展示</h3>
+      <div class="slide-container" id="slide5"></div>
+    </div>
+
+    <!-- 黑猪鲜肉小笼包检验报告模块（添加对应图片） -->
+    <div class="slide-module">
+      <h3>黑猪鲜肉小笼包检验报告</h3>
+      <div class="slide-container" id="slide6"></div>
+    </div>
+  </div>
+
+  <div class="image-slider">
+    <div class="slider-container" id="slider-container"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const slide1Images = [
+        "123.jpg",
+        "1111.jpg",
+        "2222.jpg",
+        "3333.jpg"
+      ];
+   
+      const slide3Images = [
+        "1234.jpg",
+         "zhu1.jpg",
+         "zhu2.jpg",
+         "zhu3.jpg",
+         "zhu4.jpg",
+         "zhu5.jpg"
+      
+
+      ];
+      const slide4Images = [
+        "678.jpg",
+        "rou7.jpg",
+        "rou.jpg",
+        "rou3.jpg",
+        "rou4.jpg"
+      ];
+      const slide5Images = [
+        "1.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "6.jpg",
+        "7.jpg",
+        "8.jpg",
+        "2.jpg"
+      ];
+      // 黑猪鲜肉小笼包检验报告图片（添加对应的图片路径）
+      const slide6Images = [
+        "baogao.jpg",
+        "22222.jpg",
+        "33333.jpg",
+        "44444.jpg"
+      ];
+
+      function initSlideContainer(containerId, images) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        images.forEach(imgSrc => {
+          const img = document.createElement('img');
+          img.src = imgSrc;
+          img.className = 'slide-image';
+          img.alt = '检验报告图片'; // 明确图片类型
+          img.onerror = () => {
+            console.error(`图片加载失败：${imgSrc}`);
+            img.alt = '图片无法加载';
+          };
+          container.appendChild(img);
+        });
+      }
+
+      // 初始化所有图片模块，包括检验报告模块
+      initSlideContainer('slide1', slide1Images);
+      initSlideContainer('slide3', slide3Images);
+      initSlideContainer('slide4', slide4Images);
+      initSlideContainer('slide5', slide5Images);
+      initSlideContainer('slide6', slide6Images); // 初始化检验报告图片
+
+      const images = [
+        "baozi4.jpg"
+      ];
+      const sliderContainer = document.getElementById('slider-container');
+      if (sliderContainer) {
+        images.forEach(imgSrc => {
+          const img = document.createElement('img');
+          img.src = imgSrc;
+          img.className = 'slider-image';
+          img.alt = '产品展示图';
+          img.onerror = () => {
+            console.error(`图片加载失败：${imgSrc}`);
+            img.alt = '图片无法加载';
+          };
+          sliderContainer.appendChild(img);
+        });
+      }
+
+      function updateTime() {
+        const timeElement = document.getElementById('current-time');
+        if (timeElement) {
+          timeElement.textContent = new Date().toLocaleString();
+        }
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
+
+      function updateVisitCount() {
+        const countElement = document.getElementById('visit-count');
+        if (countElement) {
+          let count = localStorage.getItem('visitCount') || 0;
+          count = parseInt(count, 10) + 1;
+          localStorage.setItem('visitCount', count);
+          countElement.textContent = count;
+        }
+      }
+      updateVisitCount();
+    });
+  </script>
+</body>
+
+</html> 
